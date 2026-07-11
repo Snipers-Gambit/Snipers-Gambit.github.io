@@ -1,15 +1,87 @@
-<!DOCTYTPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="witdh=device-witdh, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>snipEYEr's space</title>
 </head>
+
 <body>
-    
-    <H1> snipEYEr's space </H1>
-    <H2> this is where i do random things on the internet because i find the internet very cool </H2>
-    
+
+<h1>snipEYEr's space</h1>
+
+<h2>This is where I do random things on the internet because I find the internet very cool.</h2>
+
+<h3>This is version v0.1 - it is the starting of the website with only images of dags and cats.</h3>
+
+<img id="animal" src="Dog pic/dog1.jpg" width="300">
+
+<br><br>
+
+<button onclick="showDog()">🐶 Dog</button>
+
+<button onclick="showCat()">🐱 Cat</button>
+
+<script>
+
+const dogs = [
+    "Dog pic/dog1.jpg",
+    "Dog pic/dog2.jpg",
+    "Dog pic/dog3.jpg",
+    "Dog pic/dog4.jpg",
+    "Dog pic/dog5.jpg"
+];
+
+const cats = [
+    "Cat pic/cat1.jpg",
+    "Cat pic/cat2.jpg",
+    "Cat pic/cat3.jpg",
+    "Cat pic/cat4.jpg",
+    "Cat pic/cat5.jpg"
+];
+
+let dogOrder = [];
+let catOrder = [];
+
+function shuffle(array){
+
+    let copy = [...array];
+
+    for(let i = copy.length - 1; i > 0; i--){
+
+        let j = Math.floor(Math.random() * (i + 1));
+
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+
+    }
+
+    return copy;
+
+}
+
+function showDog(){
+
+    if(dogOrder.length == 0){
+        dogOrder = shuffle(dogs);
+    }
+
+    document.getElementById("animal").src = dogOrder.pop();
+
+}
+
+function showCat(){
+
+    if(catOrder.length == 0){
+        catOrder = shuffle(cats);
+    }
+
+    document.getElementById("animal").src = catOrder.pop();
+
+}
+
+</script>
 
 </body>
+
 </html>
